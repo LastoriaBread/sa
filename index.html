@@ -144,9 +144,6 @@
         .navbar.scrolled .nav-links a {
             color: var(--white);
         }
-        .navbar.scrolled .cart-icon {
-            color: var(--white);
-        }
 
         .navbar .container {
             display: flex;
@@ -221,34 +218,6 @@
             border-color: var(--white);
         }
         
-        .cart-icon {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            cursor: pointer;
-            position: relative;
-            margin-right: 20px; 
-            transition: color 0.3s ease, transform 0.3s ease; 
-        }
-        .cart-icon:hover {
-            transform: scale(1.1); 
-        }
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -12px;
-            background-color: var(--primary-color); 
-            color: var(--white);
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            display: none; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
-        }
-        .cart-badge.show {
-            display: block;
-        }
-
         .hero {
             background: var(--primary-color); 
             color: var(--white);
@@ -583,10 +552,10 @@
             margin-top: auto; 
         }
         
-        /* Updated Grid to support 5 items */
+        /* Updated Grid to support 4 items */
         .product-order-options {
             display: grid; 
-            grid-template-columns: repeat(5, 1fr); /* Changed from 4 to 5 */
+            grid-template-columns: repeat(4, 1fr); /* Reverted to 4 */
             padding: 10px 5px;
             background-color: #fcfcfc;
             border-top: 1px solid var(--light-grey);
@@ -770,23 +739,6 @@
             color: var(--primary-color); 
         }
 
-        .social-links {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        .social-links a {
-            font-size: 2rem;
-            color: var(--white);
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color); 
-            animation: bounce-sm 0.4s ease; 
-        }
         
         footer {
             background: #222; 
@@ -824,158 +776,6 @@
             transform: scale(1.1); 
         }
         
-        /* --- Modal Styles (New Feature) --- */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 2000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.6); 
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-
-        .modal-content {
-            background-color: var(--bg-cream-light);
-            margin: 5% auto; 
-            padding: 0;
-            border: 1px solid #888;
-            width: 90%;
-            max-width: 600px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            position: relative;
-            animation: slideDown 0.4s;
-        }
-        @keyframes slideDown {
-            from {transform: translateY(-50px); opacity: 0;}
-            to {transform: translateY(0); opacity: 1;}
-        }
-
-        .modal-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 15px 15px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .modal-header h3 { margin: 0; color: white; }
-        .close-modal {
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .close-modal:hover { color: #ddd; }
-
-        .modal-body {
-            padding: 20px;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-
-        .cart-items-list {
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--primary-light);
-            padding-bottom: 10px;
-        }
-        .cart-item-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding: 10px;
-            background: white;
-            border-radius: 8px;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .remove-item {
-            color: red;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-
-        .order-form-group {
-            margin-bottom: 15px;
-            text-align: right;
-        }
-        .order-form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: var(--primary-dark);
-        }
-        .order-form-group input, 
-        .order-form-group textarea, 
-        .order-form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 1rem;
-        }
-        .order-form-group input:focus, .order-form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 5px rgba(178, 132, 81, 0.3);
-        }
-
-        .payment-options {
-            display: flex;
-            gap: 15px;
-        }
-        .radio-label {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            flex: 1;
-        }
-        .radio-label input { width: auto; margin: 0; }
-
-        .modal-footer {
-            padding: 15px 20px;
-            background: #f1f1f1;
-            border-radius: 0 0 15px 15px;
-            text-align: center;
-        }
-        .checkout-btn {
-            background-color: #25D366; /* Whatsapp Color */
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Cairo', sans-serif;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-        }
-        .checkout-btn:hover {
-            background-color: #128C7E;
-            transform: scale(1.05);
-        }
-
-
         @media (max-width: 768px) {
             .navbar .container {
                 flex-direction: column;
@@ -1024,16 +824,6 @@
             }
             .navbar.scrolled .nav-links a:hover {
                 border-color: var(--white);
-            }
-
-            .cart-icon {
-                position: absolute; 
-                top: 28px; 
-                left: 25px; 
-                font-size: 1.8rem; 
-            }
-            .navbar.scrolled .cart-icon {
-                color: var(--white);
             }
 
             .hero {
@@ -1096,7 +886,7 @@
             .product-order-options {
                 padding: 10px;
                 gap: 2px;
-                grid-template-columns: repeat(5, 1fr); /* Ensure 5 columns on mobile too */
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on mobile too */
             }
             .app-link i {
                 font-size: 1.1rem;
@@ -1128,11 +918,6 @@
 
     <header class="navbar">
         <div class="container">
-            <div class="cart-icon" onclick="openCartModal()">
-                <i class="fas fa-shopping-basket"></i>
-                <span class="cart-badge" id="cart-badge">0</span>
-            </div>
-            
             <a href="#" class="logo"><i class="fas fa-bread-slice"></i> قصة خبزة</a>
             <nav>
                 <ul class="nav-links">
@@ -1229,9 +1014,6 @@
                             <div class="product-price">9.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('أصابع قرفة بالسكر', 9.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-cinnamon-sugar-fingers-shabura-19-19368122" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1247,9 +1029,6 @@
                             <div class="product-price">12.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('بريتزل دجاج البيستو', 12.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-chicken-in-pretzel-bread-19-19368121" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1265,9 +1044,6 @@
                             <div class="product-price">9.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('ثلاث أجبان كلوب ساندوتش', 9.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-three-cheese-club-sandwich-160-gm-19-19368116" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1283,9 +1059,6 @@
                             <div class="product-price">9.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('حلوم كلوب ساندوتش', 9.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-halloumi-club-sandwich-160-gm-19-19368125" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1301,9 +1074,6 @@
                             <div class="product-price">13.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('ساندوتش تركي (ديك رومي)', 13.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-turkey-sandwich-vienna-bread-185-gm-19-19368112" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1319,9 +1089,6 @@
                             <div class="product-price">13.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('ساندوتش تونة بالحبوب', 13.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-tuna-sandwich-in-ciabatta-bread-195-gm-19-19368105" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1337,9 +1104,6 @@
                             <div class="product-price">9.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('ساندوتش تونة', 9.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-tuna-club-sandwich-160-gm-19-19368118" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1355,9 +1119,6 @@
                             <div class="product-price">13.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('ساندوتش حلوم', 13.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-halloumi-sandwich-in-ciabatta-bread-195-gm-19-19368104" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1373,9 +1134,6 @@
                             <div class="product-price">13.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('ساندوتش دجاج بيستو', 13.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-pesto-chicken-sandwich-vienna-bread-185-gm-19-19368107" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1391,9 +1149,6 @@
                             <div class="product-price">13.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('ساندوتش دجاج فاهيتا', 13.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-fajita-sandwich-viena-bread-185-gm-19-19368124" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1409,9 +1164,6 @@
                             <div class="product-price">13.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('ساندوتش بريتزل حلوم', 13.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-halloumi-in-pretzel-bread-19-19368111" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1427,9 +1179,6 @@
                             <div class="product-price">15.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('سلطة سيزر', 15.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-caesar-salad-19-19368119" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1445,9 +1194,6 @@
                             <div class="product-price">15.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('سلطة كينوا', 15.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-quinoa-salad-19-19368114" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1463,9 +1209,6 @@
                             <div class="product-price">13.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('شيباتا ثلاث أجبان', 13.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-three-cheese-sandwich-in-ciabatta-bread-195g-19-19368115" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1481,9 +1224,6 @@
                             <div class="product-price">5.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('كرواسون زعتر', 5.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-zaatar-croissant-95-gm-19-19368108" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1499,9 +1239,6 @@
                             <div class="product-price">5.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('كرواسون سادة', 5.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-plain-croissant-95-gm-19-19368120" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1517,9 +1254,6 @@
                             <div class="product-price">5.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('كرواسون جبنة صفراء', 5.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-yellow-cheese-croissant-95-gm-19-19368106" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1535,9 +1269,6 @@
                             <div class="product-price">5.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('كرواسون جبنة بيضاء', 5.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-white-cheese-croissant-95-gm-1-19368110" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1553,9 +1284,6 @@
                             <div class="product-price">6.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('كوكيز شوكولاتة', 6.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-chocolate-cookies-19-19368109" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1571,9 +1299,6 @@
                             <div class="product-price">6.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('كوكيز فانيليا', 6.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-vanilla-cookies-19-19368113" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1589,9 +1314,6 @@
                             <div class="product-price">6.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('مافن شوكولاته', 6.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-chocolate-muffin-110-gm-1-19368123" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1607,9 +1329,6 @@
                             <div class="product-price">6.95 ر.س</div>
                         </div>
                         <div class="product-order-options">
-                            <button class="app-link website-link" onclick="addToCart('مافن فانيليا', 6.95)">
-                                <i class="fas fa-store"></i> <span>موقعنا</span>
-                            </button>
                             <a href="https://ananinja.com/sa/ar/product/lastoria-vanilla-muffin-110g-19-19368117" target="_blank" class="app-link ninja" title="نينجا"><img src="https://i.ibb.co/G4fMtQFc/Ninja-Logo-removebg-preview.png" alt="Ninja Logo"> <span>نينجا</span></a>
                             <a href="#" class="app-link hungerstation soon" title="هنقرستيشن (قريباً)"><img src="https://i.ibb.co/0RCrz1tS/Hungerstation-logo-removebg-preview.png" alt="Hungerstation Logo"> <span>هنقرستيشن</span></a>
                             <a href="#" class="app-link jahez soon" title="جاهز (قريباً)"><img src="https://i.ibb.co/qM4Mf662/Jahez-Logo-removebg-preview.png" alt="Jahez Logo"> <span>جاهز</span></a>
@@ -1640,14 +1359,14 @@
                     <div class="contact-card fade-in-on-scroll">
                         <i class="fas fa-phone-alt"></i>
                         <h3>للاستفسارات والطلبات الخاصة</h3>
-                        <p>تواصل مع: أحمد مظهر</p>
+                        <p>تواصل مع: أحمد على</p>
                         <a href="tel:+966500156840">0500156840</a>
                     </div>
                     <div class="contact-card fade-in-on-scroll">
                         <i class="fas fa-envelope"></i>
                         <h3>البريد الإلكتروني</h3>
                         <p>نحن هنا للإجابة على جميع استفساراتكم</p>
-                        <a href="mailto:MazharMaher@outlook.com">MazharMaher@outlook.com</a>
+                        <a href="mailto:LastoriaBread@gmail.com">LastoriaBread@gmail.com</a>
                     </div>
                     <div class="contact-card fade-in-on-scroll">
                         <i class="fas fa-map-marker-alt"></i>
@@ -1656,12 +1375,6 @@
                         <p></p>
                     </div>
                 </div>
-
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
             </div>
         </section>
 
@@ -1669,65 +1382,10 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 جميع الحقوق محفوظة لـ "قصة خبزة | Lastoria Bread".</p>
         </div>
     </footer>
 
     <div id="back-to-top" class="fas fa-arrow-up"></div>
-
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>إتمام الطلب</h3>
-                <span class="close-modal" onclick="closeCartModal()">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4>محتويات السلة:</h4>
-                <div id="cartItems" class="cart-items-list">
-                    <p style="text-align: center; color: #888;">السلة فارغة</p>
-                </div>
-                
-                <h4>معلومات التوصيل:</h4>
-                <div class="order-form-group">
-                    <label for="c-name">الاسم:</label>
-                    <input type="text" id="c-name" placeholder="أدخل اسمك الكريم">
-                </div>
-                <div class="order-form-group">
-                    <label for="c-phone">رقم الجوال:</label>
-                    <input type="tel" id="c-phone" placeholder="05xxxxxxxx">
-                </div>
-                <div class="order-form-group">
-                    <label for="c-address">العنوان بالتفصيل:</label>
-                    <textarea id="c-address" rows="3" placeholder="الحي، الشارع، المعلم المميز..."></textarea>
-                </div>
-                <div class="order-form-group">
-                    <label>طريقة الدفع:</label>
-                    <div class="payment-options">
-                        <label class="radio-label">
-                            <input type="radio" name="payment" value="كاش عند الاستلام" checked> 
-                            <i class="fas fa-money-bill-wave" style="color: green;"></i> نقداً
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="payment" value="بطاقة عند الاستلام"> 
-                            <i class="fas fa-credit-card" style="color: blue;"></i> شبكة/بطاقة
-                        </label>
-                    </div>
-                </div>
-                <div class="order-form-group">
-                    <label for="c-notes">ملاحظات إضافية:</label>
-                    <textarea id="c-notes" rows="2" placeholder="أي ملاحظات إضافية على الطلب؟"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">
-                    الإجمالي: <span id="cartTotal">0.00</span> ر.س
-                </div>
-                <button class="checkout-btn" onclick="submitOrder()">
-                    <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
-                </button>
-            </div>
-        </div>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1789,7 +1447,6 @@
                 });
             }, observerOptions);
 
-            /* [تم التعديل] إزالة كود التأخير المتدرج */
             elementsToReveal.forEach(el => {
                 observer.observe(el);
             });
@@ -1841,112 +1498,6 @@
             }
             
         });
-
-        // --- Shopping Cart Logic ---
-        let cart = [];
-
-        function addToCart(name, price) {
-            cart.push({ name: name, price: price });
-            updateCartCount();
-            alert('تمت إضافة ' + name + ' إلى السلة!');
-        }
-
-        function updateCartCount() {
-            const badge = document.getElementById('cart-badge');
-            badge.innerText = cart.length;
-            if (cart.length > 0) {
-                badge.classList.add('show');
-            } else {
-                badge.classList.remove('show');
-            }
-        }
-
-        function openCartModal() {
-            const modal = document.getElementById('orderModal');
-            const cartList = document.getElementById('cartItems');
-            const totalEl = document.getElementById('cartTotal');
-            
-            cartList.innerHTML = '';
-            let total = 0;
-
-            if (cart.length === 0) {
-                cartList.innerHTML = '<p style="text-align: center; color: #888;">السلة فارغة. أضف بعض المنتجات!</p>';
-            } else {
-                cart.forEach((item, index) => {
-                    total += item.price;
-                    const row = document.createElement('div');
-                    row.className = 'cart-item-row';
-                    row.innerHTML = `
-                        <span>${item.name}</span>
-                        <div>
-                            <span style="margin-left: 10px; font-weight: bold;">${item.price} ر.س</span>
-                            <span class="remove-item" onclick="removeFromCart(${index})"><i class="fas fa-trash"></i></span>
-                        </div>
-                    `;
-                    cartList.appendChild(row);
-                });
-            }
-            
-            totalEl.innerText = total.toFixed(2);
-            modal.style.display = 'block';
-        }
-
-        function closeCartModal() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartCount();
-            openCartModal(); // Refresh list
-        }
-
-        // Close modal if clicked outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('orderModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        function submitOrder() {
-            if (cart.length === 0) {
-                alert('السلة فارغة!');
-                return;
-            }
-
-            const name = document.getElementById('c-name').value.trim();
-            const phone = document.getElementById('c-phone').value.trim();
-            const address = document.getElementById('c-address').value.trim();
-            const notes = document.getElementById('c-notes').value.trim();
-            const payment = document.querySelector('input[name="payment"]:checked').value;
-
-            if (!name || !phone || !address) {
-                alert('الرجاء تعبئة الاسم ورقم الجوال والعنوان لإتمام الطلب.');
-                return;
-            }
-
-            let message = `*طلب جديد من الموقع* 🛍️\n\n`;
-            message += `👤 *الاسم:* ${name}\n`;
-            message += `📱 *رقم الجوال:* ${phone}\n`;
-            message += `📍 *العنوان:* ${address}\n`;
-            message += `💳 *طريقة الدفع:* ${payment}\n`;
-            if (notes) message += `📝 *ملاحظات:* ${notes}\n`;
-            
-            message += `\n*الطلبات:* \n`;
-            let total = 0;
-            cart.forEach(item => {
-                message += `- ${item.name} (${item.price} ر.س)\n`;
-                total += item.price;
-            });
-            
-            message += `\n💰 *الإجمالي:* ${total.toFixed(2)} ر.س`;
-
-            const whatsappUrl = `https://wa.me/966500156840?text=${encodeURIComponent(message)}`;
-            
-            window.open(whatsappUrl, '_blank');
-            closeCartModal();
-        }
     </script>
 
 </body>
