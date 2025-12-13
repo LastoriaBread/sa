@@ -899,8 +899,17 @@
                 renderAdminPanel(data);
             })
             .catch(err => {
+                console.error(err);
                 container.innerHTML = '<div style="text-align:center; color:red;">فشل جلب البيانات.</div>';
             });
+        }
+
+        // --- NEW HELPER FUNCTION TO STABILIZE IDs ---
+        // This removes spaces and ensures consistent string format so refresh doesn't break archives
+        function getOrderId(order) {
+            const c = String(order.code || '').trim().replace(/\s+/g, '');
+            const d = String(order.date || '').trim().replace(/\s+/g, '');
+            return c + '_' + d;
         }
 
         function renderAdminPanel(orders) {
@@ -909,12 +918,16 @@
             const searchTerm = document.getElementById('adminSearch').value.toLowerCase();
             
             const archivedIDs = JSON.parse(localStorage.getItem('archivedOrders') || '[]');
+            
+            // Log for debugging
+            console.log("Found archived IDs in storage:", archivedIDs.length);
 
             let activeHtml = '';
             let archiveHtml = '';
 
             orders.forEach((order) => {
-                const uniqueId = order.code + '_' + order.date;
+                // USE THE NEW ID GENERATOR
+                const uniqueId = getOrderId(order);
                 const isArchived = archivedIDs.includes(uniqueId);
                 
                 const searchStr = (order.client + ' ' + order.code).toLowerCase();
@@ -924,7 +937,11 @@
                 if(order.date) {
                     const d = new Date(order.date);
                     // English Date Format
-                    dateStr = d.toLocaleDateString('en-GB') + ' ' + d.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'});
+                    if(!isNaN(d.getTime())){
+                        dateStr = d.toLocaleDateString('en-GB') + ' ' + d.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'});
+                    } else {
+                        dateStr = order.date; // Fallback to raw string
+                    }
                 }
 
                 let itemsHtml = '';
